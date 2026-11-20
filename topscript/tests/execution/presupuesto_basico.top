@@ -1,0 +1,25 @@
+// Presupuesto con dos categorías, una dentro del límite y otra excedida
+presupuesto "Octubre" {
+  decimal ingreso = 5000.0;
+
+  categoria comida limite 1000.0 {
+    gasto 450.50 descripcion "super";
+    gasto 120.00 descripcion "cena";
+  }
+  categoria ocio limite 50.0 {
+    gasto 60.0 descripcion "cine";
+  }
+
+  si (comida.gastado > comida.limite) {
+    alerta("Se excedió el límite de comida");
+  } sino {
+    mostrar("Comida dentro del límite");
+  }
+  si (ocio.gastado > ocio.limite) {
+    alerta("Se excedió el límite de ocio");
+  }
+
+  decimal restante = ingreso - (comida.gastado + ocio.gastado);
+  mostrar("Total gastado: " + (comida.gastado + ocio.gastado));
+  mostrar(restante);
+}

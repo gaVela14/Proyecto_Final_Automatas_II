@@ -1,0 +1,14 @@
+// Serie de Fibonacci (primeros 10 términos) con ciclo mientras
+presupuesto "Fibonacci" {
+  entero a = 0;
+  entero b = 1;
+  entero i = 0;
+  entero tmp = 0;
+  mientras (i < 10) {
+    mostrar(a);
+    tmp = a + b;
+    a = b;
+    b = tmp;
+    i = i + 1;
+  }
+}

@@ -1,0 +1,16 @@
+// Errores de declaración, ámbito, constantes, categorías y funciones
+presupuesto "Errores de ambito" {
+  decimal ingreso = 100.0;
+  decimal ingreso = 200.0;          // ERROR: redeclaración
+  total = ingreso + 1;              // ERROR: variable no declarada
+  constante decimal IVA = 0.16;
+  IVA = 0.20;                       // ERROR: modificar constante
+  gasto 10.0 descripcion "x";       // ERROR: gasto fuera de categoría
+  categoria comida limite 100.0 {
+    entero visitas = 2;
+  }
+  categoria ocio limite 50.0 {
+    visitas = visitas + 1;          // ERROR: 'visitas' no es visible aquí
+  }
+  calcular(ingreso);                // ERROR: función no definida
+}

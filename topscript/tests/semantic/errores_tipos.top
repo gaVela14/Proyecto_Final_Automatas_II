@@ -1,0 +1,10 @@
+// Cada línea marcada debe producir un error semántico de tipos
+presupuesto "Errores de tipos" {
+  entero cantidad = 3.5;            // ERROR: decimal -> entero
+  decimal monto = "hola";           // ERROR: texto -> decimal
+  logico activo = 1;                // ERROR: entero -> logico
+  entero r = verdadero + 1;         // ERROR: operación no válida
+  si (cantidad) {                   // ERROR: condición no lógica
+    mostrar("x");
+  }
+}

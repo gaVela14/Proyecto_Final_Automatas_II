@@ -1,0 +1,21 @@
+// Expresiones con constantes, conversiones y ciclos anidados (para probar la optimización)
+presupuesto "Expresiones" {
+  decimal ingreso = 5000.0;
+  decimal total = 1200.0;
+  decimal restante = 0.0;
+  restante = ingreso - (total + 50) * 2;
+  mostrar("Restante: " + restante);
+
+  entero i = 0;
+  entero j = 0;
+  entero cuenta = 0;
+  mientras (i < 3) {
+    j = 0;
+    mientras (j < 3) {
+      cuenta = cuenta + 2 * 3;
+      j = j + 1;
+    }
+    i = i + 1;
+  }
+  mostrar(cuenta);
+}
